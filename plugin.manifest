@@ -1,0 +1,8 @@
+pluginname=StatsdMetricsAdminPlugin
+pluginclassname=StatsdMetricsAdminPlugin
+#pluginclassname=StatsdMetricsPlugin
+origin=luniki
+version=1.0
+studipMinVersion=3.1
+description=This plugins connects Stud.IP's metrics with a statsd UDP server.
+homepage=https://github.com/luniki/studip-plugin-metrics
