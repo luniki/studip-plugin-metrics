@@ -144,16 +144,16 @@ class StatsdMetricsAdminPlugin extends StudipPlugin implements SystemPlugin
 
         # IP adress of statsd host
         if (!filter_var($settings['ip'], FILTER_VALIDATE_IP)) {
-            $errors[] = _('IP ist ungültig.');
+            $errors[] = _('IP ist ungÃ¼ltig.');
         }
 
         # port of statsd host
         if (!filter_var($settings['port'], FILTER_VALIDATE_INT)) {
-            $errors[] = _('Port ist ungültig.');
+            $errors[] = _('Port ist ungÃ¼ltig.');
         }
 
         if (!preg_match('/^[a-zA-Z0-9]{1,10}$/', $settings['prefix'])) {
-            $errors[] = _('Prefix ist ungültig.');
+            $errors[] = _('Prefix ist ungÃ¼ltig.');
         }
 
         return array(sizeof($errors) === 0, $errors);

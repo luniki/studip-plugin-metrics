@@ -10,7 +10,7 @@
     <dl>
         <dt>Statsd-IP</dt>   <dd><?= htmlReady($settings['ip']) ?></dd>
         <dt>Statsd-Port</dt> <dd><?= htmlReady($settings['port']) ?></dd>
-        <dt>Pr‰fix</dt>      <dd><?= htmlReady($settings['prefix']) ?></dd>
+        <dt>Pr√§fix</dt>      <dd><?= htmlReady($settings['prefix']) ?></dd>
     </dl>
 
     <form action="<?= PluginEngine::getLink($plugin, array(), 'deactivate') ?>" method="post">
@@ -39,16 +39,16 @@
 
         <fieldset>
 
-            <legend>Unter welchem Pr‰fix wollen Sie die Daten dieses Stud.IPs speichern?</legend>
+            <legend>Unter welchem Pr√§fix wollen Sie die Daten dieses Stud.IPs speichern?</legend>
 
             <label>
-                <?= _('Pr‰fix:') ?>
+                <?= _('Pr√§fix:') ?>
                 <input required type="text" maxlength="10" name="settings[prefix]" value="<?= htmlReady($settings['prefix']) ?>">
             </label>
         </fieldset>
 
         <div class="button-group">
-            <?= \Studip\Button::createAccept(_("‹bernehmen und aktivieren")) ?>
+            <?= \Studip\Button::createAccept(_("√úbernehmen und aktivieren")) ?>
         </div>
     </form>
 
