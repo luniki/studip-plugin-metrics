@@ -5,6 +5,10 @@
     <?= MessageBox::info($flash['info']) ?>
 <? endif ?>
 
+<? if (isset($flash['err'])) : ?>
+          <?= join("", array_map(function ($err) { return MessageBox::error($err); }, $flash['err'])) ?>
+<? endif ?>
+
 <? if ($active) : ?>
 
     <dl>

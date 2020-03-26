@@ -1,31 +1,31 @@
 <?php
 
-# Copyright (c)  2015 - <mlunzena@uos.de>
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+// Copyright (c)  2020 - <mlunzena@uos.de>
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 class StatsdMetricsAdminPlugin extends StudipPlugin implements SystemPlugin
 {
     const NAVIGATION_ID = 'statsdmetricsadmin';
     const CHILD_PLUGIN  = 'StatsdMetricsPlugin';
 
-    function __construct()
+    public function __construct()
     {
         parent::__construct();
         $this->setupNavigation();
@@ -49,7 +49,7 @@ class StatsdMetricsAdminPlugin extends StudipPlugin implements SystemPlugin
 
     // ***** EN/DISABLE MAGIC *****
 
-    static function onDisable($id)
+    public static function onDisable($id)
     {
         self::deactivateChildPlugin();
     }
@@ -60,7 +60,7 @@ class StatsdMetricsAdminPlugin extends StudipPlugin implements SystemPlugin
 
 
     // show the admin interface
-    function show_action()
+    public function show_action()
     {
         $flash = $this->popFlash();
 
@@ -83,7 +83,7 @@ class StatsdMetricsAdminPlugin extends StudipPlugin implements SystemPlugin
 
 
     // update settings
-    function settings_action()
+    public function settings_action()
     {
         $this->requireRoot();
 
@@ -109,7 +109,7 @@ class StatsdMetricsAdminPlugin extends StudipPlugin implements SystemPlugin
     }
 
     // deactivate metrics plugin
-    function deactivate_action()
+    public function deactivate_action()
     {
         $this->requireRoot();
 
@@ -177,7 +177,7 @@ class StatsdMetricsAdminPlugin extends StudipPlugin implements SystemPlugin
           $id = $plugin_manager->registerPlugin($additional_class, $additional_class, $pluginpath, $pluginid);
 
           # and activate
-          $plugin_manager->setPluginEnabled($id, TRUE);
+          $plugin_manager->setPluginEnabled($id, true);
     }
 
 
@@ -208,7 +208,7 @@ class StatsdMetricsAdminPlugin extends StudipPlugin implements SystemPlugin
 
     private function popFlash()
     {
-        $key = strtolower(__CLASS__) . '_flash';
+        $key = 'statsd_flash';
         $flash = @$_SESSION[$key];
         unset($_SESSION[$key]);
         return $flash;

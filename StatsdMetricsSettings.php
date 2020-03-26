@@ -1,6 +1,6 @@
 <?php
 
-# Copyright (c)  2015 - <mlunzena@uos.de>
+# Copyright (c)  2020 - <mlunzena@uos.de>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -24,7 +24,7 @@ class StatsdMetricsSettings
 {
     const CONFIG_KEY = 'STATSD_SETTINGS';
 
-    static function get()
+    public static function get()
     {
         $cfg = Config::get();
         if (!isset($cfg[self::CONFIG_KEY]) || '' === $cfg[self::CONFIG_KEY]) {
@@ -40,7 +40,7 @@ class StatsdMetricsSettings
     }
 
 
-    static function set($settings)
+    public static function set($settings)
     {
         self::ensure();
 
@@ -53,13 +53,13 @@ class StatsdMetricsSettings
     }
 
 
-    static function ensure()
+    public static function ensure()
     {
         $exists = ConfigEntry::findByField(self::CONFIG_KEY);
         if ($exists) {
             return;
         }
 
-        $result = Config::get()->create(self::CONFIG_KEY);
+        Config::get()->create(self::CONFIG_KEY);
     }
 }
