@@ -33,7 +33,7 @@ class StatsdMetricsSettings
 
         $decoded = array();
         foreach (json_decode($cfg[self::CONFIG_KEY]) as $k => $v) {
-            $decoded[$k] = studip_utf8decode($v);
+            $decoded[$k] = $v;
         }
 
         return $decoded;
@@ -46,7 +46,7 @@ class StatsdMetricsSettings
 
         $encoded = array();
         foreach ($settings as $k => $v) {
-            $encoded[$k] = studip_utf8encode($v);
+            $encoded[$k] = $v;
         }
 
         return Config::get()->store(self::CONFIG_KEY, json_encode($encoded));
